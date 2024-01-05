@@ -1,13 +1,14 @@
 import nodemailer from 'nodemailer';
 
 export const sendEmail = async (to: string, subject: string, text: string, html: string) => {
-  console.log(process.env);
+  // console.log(process.env);
 
   // Create a test account only if the SMTP settings are not set in .env
   let transporterOptions;
   let testAccount;
 
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
+    console.log(`Using the env smtp server. Host -> ${process.env.SMTP_HOST}, Port -> ${process.env.SMTP_PORT}, User -> ${process.env.SMTP_USER}, Password -> ${process.env.SMTP_PASSWORD}`);
     transporterOptions = {
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587'),
