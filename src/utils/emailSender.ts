@@ -1,6 +1,8 @@
 import nodemailer from 'nodemailer';
 
 export const sendEmail = async (to: string, subject: string, text: string, html: string) => {
+  console.log(process.env);
+
   // Create a test account only if the SMTP settings are not set in .env
   let transporterOptions;
   let testAccount;

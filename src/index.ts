@@ -13,4 +13,7 @@ app.use(bodyParser.json());
 app.use('/api', emailRoutes);
 
 const PORT = process.env.PORT || 3780;
+
+console.log(process.env);
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
